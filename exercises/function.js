@@ -36,7 +36,7 @@ returnedFnc();
 
 // 5. Write function sum of three numbers, fn(a,b,c)
 function sum(a, b, c) {
-  if (typeof a !== "number" && typeof b !== "number" && typeof c !== "number") return "Không phải là số";
+  if (typeof a !== "number" || typeof b !== "number" || typeof c !== "number") return "Không phải là số";
   return a + b + c;
 }
 
@@ -45,7 +45,7 @@ console.log(sum(1,2,3));
 // 6. Write function to get random number from 0 to 1000, example: fn() -> 321
 function random(maxNum) {
   if (typeof maxNum !== "number") return "Không phải là số";
-  return Math.round(Math.random() * maxNum);
+  return Math.floor(Math.random() * maxNum);
 }
 
 console.log(random(1000));
