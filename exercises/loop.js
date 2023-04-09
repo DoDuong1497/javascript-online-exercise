@@ -1,62 +1,70 @@
 // 1. Write a method that creates a new array with given values: input: (3, 'a') -> ['a','a','a']
 function repeatStr(val, str) {
-  if (typeof val !== 'number' || str === '') return false;
+  if (typeof val !== 'number' || str === '') return [];
 
-  let temp = [];
+  return new Array(val).fill(str);
 
-  for (let i = 0; i < val; i++) {
-    temp.push(str);
-  }
+  // let result = [];
 
-  return temp;
+  // for (let i = 0; i < val; i++) {
+  //   result.push(str);
+  // }
+
+  // return result;
 }
 
 // console.log(repeatStr(3, 'a'));
 
 // 2. Write a method that reverts input array: input: [1,2,3] -> results: [3,2,1]
 function reverts(arr) {
-  if (arr.length === 0) return false;
+  if (arr.length === 0) return [];
 
-  let temp = [];
+  return arr.reverse();
+
+  // let result = [];
 
   // for (let i = arr.length - 1; i >= 0; i--) {
-  //   temp.push(arr[i]);
+  //   result.push(arr[i]);
   // }
 
-  let i = arr.length - 1;
-  while (i >= 0) {
-    temp.push(arr[i]);
-    i--;
-  }
+  // let i = arr.length - 1;
+  // while (i >= 0) {
+  //   result.push(arr[i]);
+  //   i--;
+  // }
 
-  return temp;
+  // return result;
 }
 
 // console.log(reverts([1, 2, 3]));
 
 // 3. Write a method that clears array from all unnecessary elements, like false, undefined, empty strings, zero, null: input: [0, 1, false, 2, undefined, '', 3, null] => results: [1, 2, 3]
 function filter(arr) {
-  if (arr.length === 0) return false;
+  if (arr.length === 0) return [];
 
-  let temp = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (Number(arr[i])) temp.push(arr[i]);
-  }
+  let result = arr.filter((val) => Boolean(val));
 
-  return temp;
+  // let result = [];
+  // for (let i = 0; i < arr.length; i++) {
+  //   if (Number(arr[i])) result.push(arr[i]);
+  // }
+
+  return result;
 }
 
 // console.log(filter([0, 1, false, 2, undefined, '', 3, null]));
 
 // 4. Write a method that returns an array without listed values: without(array, value) -> without([1,2,3,1,5,7,1], 1) -> [2,3,5,7]
 function without(arr, val) {
-  if (arr.length === 0 || typeof val !== 'number') return false;
+  if (arr.length === 0 || typeof val !== 'number') return [];
 
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === val) arr.splice(i, 1);
-  }
+  return arr.filter((item) => item !== val);
 
-  return arr;
+  // for (let i = 0; i < arr.length; i++) {
+  //   if (arr[i] === val) arr.splice(i, 1);
+  // }
+
+  // return arr;
 }
 
 // console.log(without([1, 2, 3, 1, 5, 7, 1], 1));
@@ -127,7 +135,7 @@ function deleteElement(arr, number) {
   return temp;
 }
 
-console.log(deleteElement([23, 56, 4, 78, 5, 63, 45, 210, 56], 56));
+// console.log(deleteElement([23, 56, 4, 78, 5, 63, 45, 210, 56], 56));
 
 // 10. Write a JS code to find the largest number in an array: input [2, 45, 3, 67, 34, 567, 34, 345, 123] -> result: 567
 // 11. Write a JS code to find duplicate values in a given array: input [4,2,34,4,1,12,1,4] -> results: [4, 1]
